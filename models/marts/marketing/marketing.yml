@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mkt_recs_product
+    description: "Marketing -- Recomendation Products Fact"
+    columns:
+      - name: customer_sk
+        tests:
+          - unique
+          - not_null
+
+  - name: mkt_nba_category
+    description: "Next Best Action Fact"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - product_category_sk
+            - next_product_category_sk

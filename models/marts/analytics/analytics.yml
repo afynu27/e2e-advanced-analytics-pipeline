@@ -1,0 +1,109 @@
+version : 2
+models :
+  - name: agg_sales_trends
+    description: "Aggregation of Sales for Exponential Moving Average"
+    columns:
+      - name: date_sk
+        tests:
+          - unique
+          - not_null
+          
+  - name: agg_cohort_retention
+    description: "Monthly Purchase Cohort Retention enriched with RFM Segment and CLV Badge"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - cohort_year
+            - cohort_month
+            - period_number
+            - rfm_segment
+            - clv_badge
+    columns:
+      - name: date_sk
+        tests:
+          - not_null
+      - name: cohort_label
+        tests:
+          - not_null
+      - name: period_number
+        tests:
+          - not_null
+      - name: retention_rate
+        tests:
+          - not_null
+
+  - name: agg_product_quality_residual
+    description: "Ordinary Least Squares (OLS) measure of Score Reviews and Delivery Delay Days for Product Quality"
+    columns:
+      - name: product_sk
+        tests:
+          - unique
+          - not_null
+      - name: date_sk
+        tests:
+          - unique
+          - not_null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

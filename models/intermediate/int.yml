@@ -1,0 +1,54 @@
+version : 2
+models:
+  - name: int_order_enriched
+    description: "order table that added more necessery information"
+    columns: 
+      - name: order_id
+        test: 
+          - not_null
+  - name: int_costumer
+    description: "intermediate phase of costumer table (simple and unchanged)"
+    columns: 
+      - name: customer_id
+        test: 
+          - not_null
+  - name: int_location
+    description: "intermediate phase of location table (simple and unchanged)"
+    columns: 
+      - name: location_id
+        test: 
+          - unique
+          - not_null
+  - name: int_product
+    description: "intermediate phase of product table (simple and unchanged)"
+    columns: 
+      - name: product_id
+        test: 
+          - not_null
+  - name: int_seller
+    description: "intermediate phase of seller table (simple and unchanged)"
+    columns: 
+      - name: seller_id
+        test: 
+          - not_null
+  - name: int_payment
+    description: "intermediate phase of payment table with standardized payment type"
+    columns: 
+      - name: order_id
+        test: 
+          - not_null
+  - name: int_reviews
+    description: "intermediate phase of order reviews table with localized timestamp"
+    columns: 
+      - name: review_id
+        test: 
+          - not_null
+  - name: int_order_items
+    description: "intermediate phase of order items table with localized timestamp"
+    columns: 
+      - name: order_item_id
+        test: 
+          - not_null
+      - name: order_id
+        test: 
+          - not_null

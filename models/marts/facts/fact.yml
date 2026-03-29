@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fact_payment
+    description: "Payment Fact"
+    columns:
+      - name: payment_sk
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_reviews
+    description: "Reviews Fact"
+    columns:
+      - name: review_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+
+  - name: fact_order_items
+    description: "Order Item Fact"
+    columns:
+      - name: order_item_sk
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: "Sales Fact"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
